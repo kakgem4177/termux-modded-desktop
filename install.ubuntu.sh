@@ -45,7 +45,7 @@ rm -rf /var/lib/dpkg/info/udisks2.postinst
 echo "" >> /var/lib/dpkg/info/udisks2.postinst
 dpkg --configure -a
 apt-mark hold udisks2
-apt-get install xfce4 gnome-terminal nautilus dbus-x11 tigervnc-standalone-server -y
+apt-get install xfce4 gnome-terminal nautilus dbus-x11 tigervnc-standalone-server git ubuntu-wallpapers -y
 echo "vncserver -geometry 1280x720 -xstartup /usr/bin/startxfce4" >> /usr/local/bin/vncstart
 echo "vncserver -kill :* ; rm -rf /tmp/.X1-lock ; rm -rf /tmp/.X11-unix/X1" >> /usr/local/bin/vncstop
 chmod +x /usr/local/bin/vncstart 
@@ -79,13 +79,12 @@ rm $CHROOT/root/.bashrc
 
 install_theme(){
 echo ${G}"Installing Theme"${W}
+git clone https://github.com/kakgem4177/termux-modded-desktop $CHROOT/home/ubuntu/moddesk
+mkdir $CHROOT/home/ubuntu/.config
+mv $CHROOT/home/ubuntu/moddesk/config/xfce4.1 $CHROOT/home/ubuntu/.config/xfce4
 mv $CHROOT/home/ubuntu/.bashrc $CHROOT/home/ubuntu/.bashrc.bak
-echo "wget https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/theme/theme.sh ; bash  theme.sh; exit" >> $CHROOT/home/ubuntu/.bashrc
-ubuntu
-rm $CHROOT/home/ubuntu/theme.sh*
-rm $CHROOT/home/ubuntu/.bashrc
-mv $CHROOT/home/ubuntu/.bashrc.bak $CHROOT/home/ubuntu/.bashrc
-cp $CHROOT/home/ubuntu/.bashrc $CHROOT/root/.bashrc
+mv $CHROOT/root/.bashrc $CHROOT/root/.bashrc.bak
+mv $CHROOT/home/ubuntu/.bashrc.bak $CHROOT/root/.bashrc
 sed -i 's/32/31/g' $CHROOT/root/.bashrc
 }
 
@@ -142,7 +141,7 @@ echo
 echo "vncstart  -  To start vncserver, Execute inside ubuntu"
 echo
 echo "vncstop  -  To stop vncserver, Execute inside ubuntu"${W}
-rm -rf ~/install.sh
+rm -rf ~/install.ubuntu.sh
 }
 
 banner
