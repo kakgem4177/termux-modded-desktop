@@ -9,13 +9,13 @@ C="$(printf '\033[1;36m')"
 
 banner(){
 clear
-printf ${C}"████████╗██████╗  ██████╗ ████████╗\n"
-printf     "╚══██╔══╝██╔══██╗██╔═══██╗╚══██╔══╝\n"
-printf     "   ██║   ██████╔╝██║   ██║   ██║   \n"
-printf     "   ██║   ██╔══██╗██║   ██║   ██║   \n"
-printf     "   ██║   ██████╔╝╚██████╔╝   ██║   \n"
-printf     "   ╚═╝   ╚═════╝  ╚═════╝    ╚═╝   \n"${W}
-printf ${Y}"                By Technical Bot\n"${W}
+printf ${C}"███╗   ███╗ ██████╗ ██████╗ ██████╗ ███████╗███████╗██╗  ██╗\n"
+printf     "████╗ ████║██╔═══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██║ ██╔╝\n"
+printf     "██╔████╔██║██║   ██║██║  ██║██║  ██║█████╗  ███████╗█████╔╝ \n"
+printf     "██║╚██╔╝██║██║   ██║██║  ██║██║  ██║██╔══╝  ╚════██║██╔═██╗ \n"
+printf     "██║ ╚═╝ ██║╚██████╔╝██████╔╝██████╔╝███████╗███████║██║  ██╗\n"
+printf     "╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝\n"${W}
+printf ${Y}"                By kakgem4177 | github: kakgem4177 \n"${W}
 }
 
 
@@ -109,9 +109,7 @@ echo ${G}"Fixing Sound..."${W}
 pkg update
 pkg install x11-repo -y ; pkg install pulseaudio -y
 cat > $HOME/.bashrc <<- EOF
-pulseaudio --start \
-    --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" \
-    --exit-idle-time=-1
+pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
 EOF
 
 mv $CHROOT/home/ubuntu/.bashrc $CHROOT/home/ubuntu/.bashrc.bak
