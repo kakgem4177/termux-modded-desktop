@@ -1,5 +1,4 @@
 # ModDesk
-<p>Warning! This repository is not done and will be completed soon.</p>
 <b><p>Easily install Modded Desktop on Android without Root</p></b>
 
 ### Preview
